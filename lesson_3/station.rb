@@ -1,5 +1,5 @@
 class Station
-  attr_accessor :trains 
+  attr_reader :trains 
 
   def initialize(name)
     @name = name
@@ -7,19 +7,19 @@ class Station
   end
 
   def accept_train(train)
-    self.trains << train
+    trains << train
   end
 
   def send_train(train)
-    self.trains.delete(train)
+    trains.delete(train)
   end  
 
-  def trains_by_names
-    self.trains.each {|train| puts train.name}
+  def trains_by_name
+    trains.map {|train| train.name}
   end
 
-  def trains_by_types
-    cargo_number = self.trains.select {|train| train.cargo_type == 1}.size
-    puts "На станции #{cargo_number} грузовых и #{self.trains.size - cargo_number} пассажирских поездов"
+  def trains_by_type
+    trains.group_by {|train| train.type}.each {|k, v| puts "#{k}: #{v.size}"} 
   end
+
 end
