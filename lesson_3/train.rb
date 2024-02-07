@@ -35,8 +35,7 @@ class Train
 
   def set_route(route)
     @route = route
-    @current_station_index = 0
-    #{}self.current_station    #.send_train(self)
+    @current_station_index = 0    
   end
 
   def current_station    
