@@ -1,7 +1,10 @@
-class Train # т.к. большинство методом мы будеть использовать на обьекте класса, то оставляем все в public
+class Train # т.к. все методом мы будеть использовать на обьекте класса, то оставляем все в public
   attr_reader :route, :current_station_index, :name, :type, :wagon_number
   def initialize(name)
-      set_value(name)  
+    @name = name
+    @speed = 0
+    @wagons = []    
+    @route = []   
   end
     
   def incrase_speed(speed)
@@ -48,18 +51,9 @@ class Train # т.к. большинство методом мы будеть и�
   def go_previous_station
     @current_station_index -= 1 if previous_station
   end
-  
-  protected #используется защищенные методы чтобы использовать их в производных классах
-  
-  def set_value(name)
-    @name = name
-    @speed = 0
-    @wagons = []    
-    @route = []        
-  end
-
-  def add_wagon_b(wagon)
-    @wagons << wagon if @speed == 0
+    
+  def add_wagon(wagon)
+    @wagons << wagon if @speed == 0 && wagon.type == type
   end
 
 end
