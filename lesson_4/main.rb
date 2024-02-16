@@ -79,8 +79,8 @@ class Task
     train_name = gets.chomp.to_s
     puts "Выберите тип поезда \n1. пассажирский\n2. грузовой"
     gets.chomp.to_i == 1 ? @pass_trains << PassengerTrain.new(train_name) : 
-      @cargo_trains << CargoTrain.new(train_name)
-        
+      @cargo_trains << CargoTrain.new(train_name)          
+    
     case output_input(@train_action) 
       when 1
         train_creation

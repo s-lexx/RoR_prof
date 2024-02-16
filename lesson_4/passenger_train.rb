@@ -1,9 +1,6 @@
 class PassengerTrain < Train
   def initialize(name)
-    @name = name
-    @speed = 0
-    @wagons = []    
-    @route = [] 
+    super    
     @type = :passenger    
   end
   

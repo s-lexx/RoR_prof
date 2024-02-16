@@ -1,5 +1,6 @@
 class Train # т.к. все методом мы будеть использовать на обьекте класса, то оставляем все в public
-  attr_reader :route, :current_station_index, :name, :type, :wagon_number
+  attr_reader :route, :current_station_index, :type, :wagon_number
+  attr_accessor :name
   def initialize(name)
     @name = name
     @speed = 0
